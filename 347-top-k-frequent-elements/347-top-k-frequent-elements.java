@@ -1,5 +1,9 @@
 class Solution {
     public int[] topKFrequent(int[] nums, int k) {
+        if(k == nums.length) {
+            return nums;
+        }
+        
         // key: element value: frequency of element
         Map<Integer, Integer> map = new HashMap<>();
         for(int num : nums) {
@@ -24,7 +28,7 @@ class Solution {
         for(int i = k - 1; i >= 0; i--) {
             top[i] = heap.poll();
         }
-        
+
         return top;
     }
 }

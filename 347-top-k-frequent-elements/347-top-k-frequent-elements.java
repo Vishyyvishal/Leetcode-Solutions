@@ -1,34 +1,36 @@
 class Solution {
+    // BUCKET SORT METHOD
     public int[] topKFrequent(int[] nums, int k) {
         if(k == nums.length) {
             return nums;
         }
         
-        // key: element value: frequency of element
         Map<Integer, Integer> map = new HashMap<>();
         for(int num : nums) {
-            if(map.containsKey(num)) {
-                map.put(num, map.get(num) + 1);
-            } else {
-                map.put(num, 1);
-            }
+            map.put(num, map.getOrDefault(num, 0) + 1);
         }
         
-        // Build a heap of size k using N elements
-        Queue<Integer> heap = new PriorityQueue<>((n1, n2) -> map.get(n1) - map.get(n2));
+        List<Integer>[] buckets = new List[nums.length + 1];
+        for(int i = 0; i < buckets.length; i++) {
+            buckets[i] = new ArrayList<>();
+        }
         
-        for(int num : map.keySet()) {
-            heap.add(num);
-            if(heap.size() > k) {
-                heap.poll();
+        for(int key : map.keySet()) {
+            buckets[map.get(key)].add(key);
+        }
+        
+        List<Integer> flattened = new ArrayList<>();
+        for(int i = buckets.length - 1; i >= 0; i--) {
+            for(int num : buckets[i]) {
+                flattened.add(num);
             }
         }
         
         int[] top = new int[k];
-        for(int i = k - 1; i >= 0; i--) {
-            top[i] = heap.poll();
+        for(int i = 0; i < k; i++) {
+            top[i] = flattened.get(i);
         }
-
+    
         return top;
     }
 }

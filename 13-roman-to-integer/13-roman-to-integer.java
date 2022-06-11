@@ -12,7 +12,7 @@ class Solution {
     
     public int romanToInt(String s) {
         // map: roman char -> integer value
-        Map<Character, Integer> map = new HashMap<>();
+        Map<Character, Integer> map = new HashMap<>(7);
         
         map.put('I', 1);
         map.put('V', 5);
@@ -30,7 +30,6 @@ class Solution {
         for(int i = s.length() - 2; i >= 0; i--) {
             char currChar = s.charAt(i);
             char nextChar = s.charAt(i + 1);
-            
             if(map.get(currChar) >= map.get(nextChar)) {
                 res += map.get(currChar);
             } else {

@@ -1,14 +1,15 @@
 class Solution {
     
-    /*
-        1. create a map with roman chars to integer
-        2. scan the string from right to left. get the integer value of the current 
-           character from the map and add it to the result
-        3. if the character tot he right of the current character is bigger than the current
-           character, subtrat from the result
-           
-    
-    */
+/*
+    1. create a map with roman chars to integer
+    2. scan the string from right to left. get the integer value of the current 
+       character from the map and add it to the result
+    3. if the character tot he right of the current character is bigger than the current
+       character, subtrat from the result
+       
+Time:  O(N)
+Space: O(N)
+*/
     
     public int romanToInt(String s) {
         // map: roman char -> integer value

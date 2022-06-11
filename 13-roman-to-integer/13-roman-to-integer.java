@@ -1,14 +1,16 @@
 class Solution {
     
 /*
+    max length of s is 15
+
     1. create a map with roman chars to integer
     2. scan the string from right to left. get the integer value of the current 
        character from the map and add it to the result
     3. if the character tot he right of the current character is bigger than the current
        character, subtrat from the result
        
-Time:  O(N)
-Space: O(N)
+    Time:  O(1) b/c max length => O(15) -> O(1)
+    Space: O(1) b/c map stores at most 7 characters -> O(7) -> O(1)
 */
     
     public int romanToInt(String s) {

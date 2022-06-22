@@ -16,7 +16,6 @@ class Solution {
         ListNode slow = head;
         ListNode dup = slow;
         ListNode fast = head.next;
-        
         while(fast != null) {
             if(fast.val != slow.val) {
                 slow.next = fast;
@@ -24,9 +23,9 @@ class Solution {
             }
             fast = fast.next;
         }
-        slow.next = fast;
-        
-        return dup;
-        
+        slow.next = fast; 
+        return dup;   
     }
+    // Time: O(N)
+    // Space: O(1)
 }

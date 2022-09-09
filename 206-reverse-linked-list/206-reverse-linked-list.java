@@ -19,6 +19,7 @@ class Solution {
             head = nextNode;
         }
         
+        
         return prev; 
     }
 }

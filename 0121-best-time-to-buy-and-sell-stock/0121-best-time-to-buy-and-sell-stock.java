@@ -14,7 +14,8 @@ class Solution {
                 int delta = prices[right] - prices[left];
                 maxProfit = Math.max(maxProfit, delta);
             } else if(prices[left] > prices[right]) {
-                // if
+                // if buy is more than sell
+                // then move buy pointer to sell pointer
                 left = right;
             }
             right++;

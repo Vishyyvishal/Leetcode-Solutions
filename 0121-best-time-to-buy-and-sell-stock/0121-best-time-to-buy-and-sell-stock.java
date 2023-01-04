@@ -1,7 +1,9 @@
 class Solution {
     public int maxProfit(int[] prices) {
+        
         // left is buy
         int left = 0;
+        
         // right is sell
         int right = 1;
         int maxProfit = 0;
@@ -12,6 +14,7 @@ class Solution {
                 int delta = prices[right] - prices[left];
                 maxProfit = Math.max(maxProfit, delta);
             } else if(prices[left] > prices[right]) {
+                // if
                 left = right;
             }
             right++;
